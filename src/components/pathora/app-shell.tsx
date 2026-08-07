@@ -40,9 +40,10 @@ function NavLinks({
   onNavigate,
   isAdmin,
 }: {
-  onNavigate?: () => void;
-  isAdmin?: boolean;
+  onNavigate?: (() => void) | undefined;
+  isAdmin?: boolean | undefined;
 }) {
+
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const items = isAdmin
     ? [...NAV, { to: "/admin", label: "Admin Panel", icon: Shield } as const]
