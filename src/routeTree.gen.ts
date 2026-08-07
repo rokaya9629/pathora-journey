@@ -14,7 +14,17 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AppAchievementsRouteImport } from './routes/_app/achievements'
+import { Route as AppAdminRouteImport } from './routes/_app/admin'
+import { Route as AppAdvisorRouteImport } from './routes/_app/advisor'
+import { Route as AppAiTwinRouteImport } from './routes/_app/ai-twin'
+import { Route as AppCvRouteImport } from './routes/_app/cv'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
+import { Route as AppLearnRouteImport } from './routes/_app/learn'
+import { Route as AppOpportunitiesRouteImport } from './routes/_app/opportunities'
+import { Route as AppPortfolioRouteImport } from './routes/_app/portfolio'
+import { Route as AppRoadmapRouteImport } from './routes/_app/roadmap'
+import { Route as AppSkillsRouteImport } from './routes/_app/skills'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,9 +50,59 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAchievementsRoute = AppAchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAdminRoute = AppAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAdvisorRoute = AppAdvisorRouteImport.update({
+  id: '/advisor',
+  path: '/advisor',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAiTwinRoute = AppAiTwinRouteImport.update({
+  id: '/ai-twin',
+  path: '/ai-twin',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCvRoute = AppCvRouteImport.update({
+  id: '/cv',
+  path: '/cv',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLearnRoute = AppLearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOpportunitiesRoute = AppOpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPortfolioRoute = AppPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRoadmapRoute = AppRoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSkillsRoute = AppSkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -51,14 +111,34 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/achievements': typeof AppAchievementsRoute
+  '/admin': typeof AppAdminRoute
+  '/advisor': typeof AppAdvisorRoute
+  '/ai-twin': typeof AppAiTwinRoute
+  '/cv': typeof AppCvRoute
   '/dashboard': typeof AppDashboardRoute
+  '/learn': typeof AppLearnRoute
+  '/opportunities': typeof AppOpportunitiesRoute
+  '/portfolio': typeof AppPortfolioRoute
+  '/roadmap': typeof AppRoadmapRoute
+  '/skills': typeof AppSkillsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/achievements': typeof AppAchievementsRoute
+  '/admin': typeof AppAdminRoute
+  '/advisor': typeof AppAdvisorRoute
+  '/ai-twin': typeof AppAiTwinRoute
+  '/cv': typeof AppCvRoute
   '/dashboard': typeof AppDashboardRoute
+  '/learn': typeof AppLearnRoute
+  '/opportunities': typeof AppOpportunitiesRoute
+  '/portfolio': typeof AppPortfolioRoute
+  '/roadmap': typeof AppRoadmapRoute
+  '/skills': typeof AppSkillsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -67,13 +147,53 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/_app/achievements': typeof AppAchievementsRoute
+  '/_app/admin': typeof AppAdminRoute
+  '/_app/advisor': typeof AppAdvisorRoute
+  '/_app/ai-twin': typeof AppAiTwinRoute
+  '/_app/cv': typeof AppCvRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/learn': typeof AppLearnRoute
+  '/_app/opportunities': typeof AppOpportunitiesRoute
+  '/_app/portfolio': typeof AppPortfolioRoute
+  '/_app/roadmap': typeof AppRoadmapRoute
+  '/_app/skills': typeof AppSkillsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/onboarding' | '/reset-password' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/onboarding'
+    | '/reset-password'
+    | '/achievements'
+    | '/admin'
+    | '/advisor'
+    | '/ai-twin'
+    | '/cv'
+    | '/dashboard'
+    | '/learn'
+    | '/opportunities'
+    | '/portfolio'
+    | '/roadmap'
+    | '/skills'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/onboarding' | '/reset-password' | '/dashboard'
+  to:
+    | '/'
+    | '/auth'
+    | '/onboarding'
+    | '/reset-password'
+    | '/achievements'
+    | '/admin'
+    | '/advisor'
+    | '/ai-twin'
+    | '/cv'
+    | '/dashboard'
+    | '/learn'
+    | '/opportunities'
+    | '/portfolio'
+    | '/roadmap'
+    | '/skills'
   id:
     | '__root__'
     | '/'
@@ -81,7 +201,17 @@ export interface FileRouteTypes {
     | '/auth'
     | '/onboarding'
     | '/reset-password'
+    | '/_app/achievements'
+    | '/_app/admin'
+    | '/_app/advisor'
+    | '/_app/ai-twin'
+    | '/_app/cv'
     | '/_app/dashboard'
+    | '/_app/learn'
+    | '/_app/opportunities'
+    | '/_app/portfolio'
+    | '/_app/roadmap'
+    | '/_app/skills'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -129,6 +259,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/achievements': {
+      id: '/_app/achievements'
+      path: '/achievements'
+      fullPath: '/achievements'
+      preLoaderRoute: typeof AppAchievementsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/admin': {
+      id: '/_app/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AppAdminRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/advisor': {
+      id: '/_app/advisor'
+      path: '/advisor'
+      fullPath: '/advisor'
+      preLoaderRoute: typeof AppAdvisorRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/ai-twin': {
+      id: '/_app/ai-twin'
+      path: '/ai-twin'
+      fullPath: '/ai-twin'
+      preLoaderRoute: typeof AppAiTwinRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/cv': {
+      id: '/_app/cv'
+      path: '/cv'
+      fullPath: '/cv'
+      preLoaderRoute: typeof AppCvRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
@@ -136,15 +301,70 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDashboardRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/learn': {
+      id: '/_app/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof AppLearnRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/opportunities': {
+      id: '/_app/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof AppOpportunitiesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/portfolio': {
+      id: '/_app/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof AppPortfolioRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/roadmap': {
+      id: '/_app/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof AppRoadmapRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/skills': {
+      id: '/_app/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof AppSkillsRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppAchievementsRoute: typeof AppAchievementsRoute
+  AppAdminRoute: typeof AppAdminRoute
+  AppAdvisorRoute: typeof AppAdvisorRoute
+  AppAiTwinRoute: typeof AppAiTwinRoute
+  AppCvRoute: typeof AppCvRoute
   AppDashboardRoute: typeof AppDashboardRoute
+  AppLearnRoute: typeof AppLearnRoute
+  AppOpportunitiesRoute: typeof AppOpportunitiesRoute
+  AppPortfolioRoute: typeof AppPortfolioRoute
+  AppRoadmapRoute: typeof AppRoadmapRoute
+  AppSkillsRoute: typeof AppSkillsRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAchievementsRoute: AppAchievementsRoute,
+  AppAdminRoute: AppAdminRoute,
+  AppAdvisorRoute: AppAdvisorRoute,
+  AppAiTwinRoute: AppAiTwinRoute,
+  AppCvRoute: AppCvRoute,
   AppDashboardRoute: AppDashboardRoute,
+  AppLearnRoute: AppLearnRoute,
+  AppOpportunitiesRoute: AppOpportunitiesRoute,
+  AppPortfolioRoute: AppPortfolioRoute,
+  AppRoadmapRoute: AppRoadmapRoute,
+  AppSkillsRoute: AppSkillsRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -159,13 +379,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
