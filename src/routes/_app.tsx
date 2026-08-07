@@ -38,12 +38,10 @@ function AppLayout() {
       email={user.email ?? ""}
       xp={profile.data?.xp ?? 0}
       isAdmin={isAdmin.data ?? false}
-      onSignOut={async () => {
-        await signOut();
-        navigate({ to: "/" });
+      onSignOut={() => {
+        void signOut().then(() => navigate({ to: "/" }));
       }}
-    >
-      <Outlet />
-    </AppShell>
+    />
   );
+
 }
