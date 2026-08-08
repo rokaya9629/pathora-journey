@@ -65,7 +65,14 @@ export type Opportunity = {
   deadline: string | null;
   url: string;
   tags: string[];
+  location: string;
+  is_remote: boolean;
+  difficulty: string;
+  required_skills: string[];
+  compensation: string | null;
+  career_id: string | null;
 };
+
 export type Resource = {
   id: string;
   title: string;
