@@ -141,39 +141,65 @@ export type Database = {
       }
       opportunities: {
         Row: {
+          career_id: string | null
+          compensation: string | null
           created_at: string
           deadline: string | null
           description: string
+          difficulty: string
           id: string
+          is_remote: boolean
+          location: string
           organization: string | null
+          required_skills: string[]
           tags: string[]
           title: string
           type: string
           url: string
         }
         Insert: {
+          career_id?: string | null
+          compensation?: string | null
           created_at?: string
           deadline?: string | null
           description?: string
+          difficulty?: string
           id?: string
+          is_remote?: boolean
+          location?: string
           organization?: string | null
+          required_skills?: string[]
           tags?: string[]
           title: string
           type?: string
           url: string
         }
         Update: {
+          career_id?: string | null
+          compensation?: string | null
           created_at?: string
           deadline?: string | null
           description?: string
+          difficulty?: string
           id?: string
+          is_remote?: boolean
+          location?: string
           organization?: string | null
+          required_skills?: string[]
           tags?: string[]
           title?: string
           type?: string
           url?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "opportunities_career_id_fkey"
+            columns: ["career_id"]
+            isOneToOne: false
+            referencedRelation: "careers"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -360,6 +386,38 @@ export type Database = {
             columns: ["career_id"]
             isOneToOne: false
             referencedRelation: "careers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      saved_opportunities: {
+        Row: {
+          created_at: string
+          id: string
+          note: string | null
+          opportunity_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          note?: string | null
+          opportunity_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          note?: string | null
+          opportunity_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_opportunities_opportunity_id_fkey"
+            columns: ["opportunity_id"]
+            isOneToOne: false
+            referencedRelation: "opportunities"
             referencedColumns: ["id"]
           },
         ]
